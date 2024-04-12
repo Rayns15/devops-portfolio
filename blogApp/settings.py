@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_icons',
+    'bootstrap5',
 ]
 
 TAILWIND_APP_NAME = 'theme'
