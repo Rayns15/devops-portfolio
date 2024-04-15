@@ -1,7 +1,7 @@
 /*
 ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
 */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -523,6 +523,31 @@ select {
   border-radius: 100%;
 }
 
+.menuBtn {
+  display: none;
+}
+
+.btn {
+  background-color: #3760d4;
+  border-radius: 50px;
+  padding: .5rem 1rem;
+  width: 100px;
+  color: var(--other-color);
+  text-align: center;
+}
+
+.btn:hover{
+  background-color: rgb(55, 96, 212, 0.9);
+}
+
+.edit-prf-close-btn {
+  cursor: pointer;
+}
+
+.mobmenuBtn {
+  background-color: #1b2939;
+}
+
 [type='checkbox']:focus,[type='radio']:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -679,9 +704,15 @@ select {
   --tw-backdrop-sepia:  ;
 }
 
-.container {
-  width: 100%;
+.signup-button {
+  border: none;
+  cursor: pointer;
+  padding: .7rem 1rem;
 }
+
+/* .container {
+  width: 100%;
+} */
 
 @media (min-width: 640px) {
   .container {
@@ -851,6 +882,10 @@ select {
 
 .mb-40 {
   margin-bottom: 10rem;
+}
+
+.mb-38 {
+  margin-bottom: 8.5rem;
 }
 
 .-mt-44 {
@@ -1104,6 +1139,91 @@ select {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+/* Signup Page */
+
+.signupbc {
+  background-color: #121e2a;
+  color: #fff;
+}
+
+.container {
+	max-width: 960px;
+	margin: auto;
+	width: 100%;
+}
+
+.signup-content, .login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.signup-form div {
+  margin: 1rem 0;
+}
+
+.signup-form, .login-form {
+  background-color: #1b2939;
+  border: 2px solid #1b2939;
+  color: #fff;
+  border-radius: 10px;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+
+.signup-form label[for]:after {
+  content: " *";
+  color: red;
+}
+
+.login-form label[for]:after {
+  content: " *";
+  color: red;
+}
+
+.signup-form h1 {
+  text-align: center;
+}
+
+.signup-form input {
+  padding: .5rem 1rem;
+  background-color: #121e2a;
+  border: 2px solid #203145;
+  color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  outline: none;
+}
+
+.signup-form input:focus {
+  border: 3px solid #3760d4;
+}
+
+.password-instructions {
+  margin-top: -1rem;
+  list-style: none;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.password-instructions li {
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.password-instructions li:before {
+  content: "•";
+  position: absolute;
+  left: -1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff2c33;
+  font-size: 1.5rem;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .overflow-hidden {
@@ -1779,6 +1899,10 @@ select {
 
   .md\:-mr-60 {
     margin-right: -15rem;
+  }
+
+  .md\:mr-60 {
+    margin-right: 15rem;
   }
 
   .md\:ml-52 {

@@ -1,4 +1,10 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect, get_object_or_404
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from .forms import CustomUserCreationForm, CustomAuthenticationForm
+from .forms import CustomUserChangeForm
+from django.http import HttpResponse
 from django.http import Http404
 from home.models import Blog
 from django.contrib import messages
@@ -7,6 +13,98 @@ from django.core.mail import send_mail
 from django.db.models import Q
 import random
 import re
+
+from pytube import YouTube
+import qrcode
+import base64
+from datetime import timedelta
+from io import BytesIO
+import requests
+import string
+from PIL import Image
+import os
+import io
+import jsbeautifier
+import speedtest
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            authenticate(username=username, password=password)
+            return redirect('login')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+
+def login_view(request):
+    if request.method == 'POST':
+        form = CustomAuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        if request.user.is_authenticated:
+            return redirect('home')
+        form = CustomAuthenticationForm()
+    return render(request, 'login.html', {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = CustomUserChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile has been updated successfully.')
+            return redirect('edit_profile')
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+    return render(request, 'edit_profile.html', {'form': form})
+
+def password_generator(request):
+    if request.method == 'POST':
+        length = int(request.POST.get('length'))
+        uppercase = request.POST.get('uppercase') == 'on'
+        lowercase = request.POST.get('lowercase') == 'on'
+        numbers = request.POST.get('numbers') == 'on'
+        symbols = request.POST.get('symbols') == 'on'
+
+        characters = ''
+        if uppercase:
+            characters += string.ascii_uppercase
+        if lowercase:
+            characters += string.ascii_lowercase
+        if numbers:
+            characters += string.digits
+        if symbols:
+            characters += string.punctuation
+
+        if characters:
+            password = ''.join(random.choice(characters) for i in range(length))
+        else:
+            password = ''
+
+        context = {
+            'password': password,
+            'length': length,
+            'uppercase': uppercase,
+            'lowercase': lowercase,
+            'numbers': numbers,
+            'symbols': symbols,
+        }
+        return render(request, 'password-generator.html', context)
+    else:
+        return render(request, 'password-generator.html')
 
 # Create your views here.
 def index (request):
@@ -47,7 +145,7 @@ def contact (request):
                 Email:\n\t\t{}\n
                 Phone:\n\t\t{}\n
                 '''.format(form_data['name'], form_data['message'], form_data['email'],form_data['phone'])
-                send_mail('You got a mail!', message, '', ['dev.ash.py@gmail.com'])
+                send_mail('You got a mail!', message, '', ['panaitemanuel@gmail.com'])
                 messages.success(request, 'Your message was sent.')
                 # return HttpResponseRedirect('/thanks')
             else:

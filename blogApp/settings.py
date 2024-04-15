@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v+r480m@z6_x@hh4w#fq6t8zqrfo8+d@2823@eu7vntl!cz=%o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*", "127.0.0.1"]
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_icons',
     'bootstrap5',
+    'users.apps.UsersConfig',
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -153,11 +154,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 #     os.path.join(BASE_DIR, "static"),
 # ]
 
-if DEBUG:
-  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-else:
-  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-  STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static")
+# ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 # EMAIL CONFIGURATION (for contact form)

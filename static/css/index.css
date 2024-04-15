@@ -137,3 +137,80 @@
 .dropdown:hover .dropbtn {
     background-color: #0e0f63;
   }
+
+/* Signup Page */
+
+.container{
+	max-width: 960px;
+	margin: auto;
+	width: 100%;
+}
+
+.signup-content, .login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.signup-form, .login-form {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+
+.signup-form label[for]:after {
+  content: " *";
+  color: red;
+}
+
+.signup-form h1 {
+  text-align: center;
+}
+
+.signup-form, .login-form {
+  background-color: #1b2939;
+  border: 2px solid #1b2939;
+}
+
+.signup-form input{
+  background-color: #121e2a;
+  border: 2px solid #203145;
+  color: #fff;
+}
+
+.signup-content, .login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.signup-form label[for]:after {
+  content: " *";
+  color: red;
+}
+
+.signup-form h1 {
+  text-align: center;
+}
+
+.signup-form input:focus {
+  border: 3px solid #3760d4;
+}
+
+.signup-form, .login-form {
+  background-color: #1b2939;
+  border: 2px solid #1b2939;
+}
+
+.signup-form input{
+  background-color: #121e2a;
+  border: 2px solid #203145;
+  color: #fff;
+}
+
+.signup-form div {
+  margin: 1rem 0;
+}

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hostmind/host@latest/static/index.css">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <title>{% block title %}{% endblock title %} - Portfolio</title>
     {% tailwind_css %}
 </head>
@@ -39,17 +38,28 @@
                   </svg>
                 </button>
               </div>
-              <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div class="absolute bg-slate-700 right-0 z-50 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1" role="none">
-                  <a href="/" class="text-gray-700 hover:bg-gray-400 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
-                  <a href="/" class="text-gray-700 hover:bg-gray-400 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
-                  <a href="/" class="text-gray-700 hover:bg-gray-400 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">License</a>
+                  <a href="/" class="text-white hover:bg-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0"><i class="bi bi-person mr-2 text-xl"></i>Account settings</a>
+                  <a href="/" class="text-white hover:bg-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
+                  <a href="/" class="text-white hover:bg-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">License</a>
                 </div>
               </div>
             </div>
-            <a href="/" class="p-2 px-3 my-1 text-white rounded-[8px] hover:bg-gray-800">Login</a>
+            {% if not user.is_authenticated %}
+                <a style='margin-right: .5rem;' class='bg-blue-600 p-2 px-4 text-white rounded-[8px] hover:bg-blue-700 hover:outline hover:outline-blue-600 transition delay-50' href='/signup'>Signup</a>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <a href='/edit_profile'>My Account</a>
+            {% else %}
+                <a style='display: none;' href='/edit_profile'>My Account</a>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <a class='bg-blue-600 p-2 px-4 text-white rounded-[8px] hover:bg-blue-700 hover:outline hover:outline-blue-600 transition delay-50' href='/logout'>Logout</a>
+            {% else %}
+                <a class='bg-blue-600 p-2 px-4 text-white rounded-[8px] hover:bg-blue-700 hover:outline hover:outline-blue-600 transition delay-50' href='/login'>Login</a>
+            {% endif %}
             <i class="searchBtn1 p-2 px-3 my-1 text-white rounded-[8px] hover:bg-gray-800 mt-1 bi bi-search text-sm cursor-pointer"></i>
-        </div>
     </nav>
 
     <div class="mob-nav bg-gray-900 hidden flex-col items-center w-full h-64 md:hidden">
@@ -110,19 +120,18 @@
                   <a href='/category/JavaScript' class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>JavaScript</button></a>
                   <a href='/category/Design'  class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Design</button></a>
                 </div>
-    
                 <div class='flex md:flex-grow-2 justify-start space-x-3 text-sm md:text-base m-4 -mt-10'>
                   <a href='/category/Web Design' class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Web Design</button></a>
                   <a href='/category/Frameworks' class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Frameworks</button></a>
                 </div>
-    
                 <div class='flex md:flex-grow-2 justify-start space-x-3 text-sm md:text-base m-4 -mt-6'>
-                    <a href='/category/Tools'  class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Tools</button></a>
+                    <a href='/category/Tools'  class='sm:text-[12px] '><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-slate-700 transition delay-75 ease-in-out my-3'>Toolss</button></a>
                   </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 <style>
@@ -198,6 +207,206 @@
 .shake {
   animation: shake 0.5s;
 }
+
+{% comment %} .container{
+	max-width: 960px;
+	margin: auto;
+	width: 100%;
+}
+
+.container1{
+	max-width: 960px;
+	margin: auto;
+	width: 100%;
+}
+
+.qr-pick-color-container {
+  display: flex; 
+  justify-content: space-between; 
+  padding: 1rem; 
+  background-color: #fff; 
+  border-radius: 10px; 
+  margin-bottom: 1rem;
+}
+
+/* Signup Page */
+
+.signup-content, .login-content {
+  background-color: #121e2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+}
+
+.signup-form, .login-form {
+  background-color: #1b2939;
+  border-radius: 10px;
+  border: 2px solid #1b2939;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+
+.signup-form label[for]:after {
+  content: " *";
+  color: red;
+}
+
+.signup-form h1 {
+  text-align: center;
+}
+
+.signup-form input {
+  padding: .5rem 1rem;
+  background-color: #121e2a;
+  border-radius: 10px;
+  border: 2px solid #203145;
+  width: 100%;
+  outline: none;
+  color: #fff;
+}
+
+.signup-form input:focus {
+  border: 3px solid #3760d4;
+}
+
+/* Styles for dark mode */
+
+.dark-mode {
+  background-color: #121e2a;
+  color: #fff;
+}
+
+.dark-mode a {
+    color: #fff;
+}
+
+.dark-mode header {
+    background-color: #121e2a;
+    border-bottom: 2px solid #1b2939;
+}
+
+.dark-mode .testimonials {
+    background-color: #1b2939;
+}
+
+.dark-mode .testimonial {
+    background-color: #121e2a;
+}
+
+.dark-mode .signup-form, .dark-mode .login-form {
+    background-color: #1b2939;
+    border: 2px solid #1b2939;
+}
+
+.dark-mode .signup-form input{
+    background-color: #121e2a;
+    border: 2px solid #203145;
+    color: #fff;
+}
+
+.dark-mode .login-form input{
+    background-color: #121e2a;
+    border: 2px solid #203145;
+    color: #fff;
+}
+
+.dark-mode .yt-video-downloader-form {
+    background-color: #1b2939;
+}
+
+.dark-mode .yt-video-downloader-form input{
+    background-color: #121e2a;
+    border: 2px solid #203145;
+    color: #fff;
+}
+
+.dark-mode .select-menu {
+    background-color: #121e2a;
+    color: #fff;
+    border: #203145;
+    outline: none;
+}
+
+.dark-mode .error-msg {
+    background-color: #203145;
+}
+
+.dark-mode .success-msg {
+    background-color: #203145;
+}
+
+.dark-mode .qr-text {
+    background-color: #121e2a;
+    border: 2px solid #203145;
+    color: #fff;
+}
+
+.dark-mode .qr-pick-color-container {
+    background-color: #121e2a;
+}
+.dark-mode .password-gen-form {
+    background-color: #1b2939;
+    border: 2px solid #1b2939;
+}
+
+.dark-mode .password-gen-form textarea {
+    background-color: #121e2a;
+    border: 2px solid #203145;
+    color: #fff;
+}
+
+.dark-mode .ip-details th,
+.dark-mode .ip-details td {
+  border: 1px solid #121e2a;
+}
+
+.dark-mode .ip-details th {
+    background-color: #203145;
+}
+
+.dark-mode .ip-details tr:nth-child(even) {
+    background-color: #253850;
+}
+
+.dark-mode #mobmenuBtn:active {
+    background-color: #1b2939;
+}
+
+.dark-mode .mobMenu {
+    background-color: #1b2939;
+    border-top: 2px solid #203145;
+    border-bottom: 2px solid #203145;
+    border-bottom: 2px solid #203145;
+}
+
+.dark-mode .imp-links ul li {
+    padding: 1rem 1.5rem;
+    /* margin: .3rem 0; */
+    border-bottom: 2px solid #203145;
+}
+
+.dark-mode .imp-links ul li:hover {
+    background-color: #121e2a;
+}
+
+.dark-mode #dark-mode-toggle:active {
+    background-color: #1b2939;
+}
+
+.dark-mode #mob-dark-mode-toggle:active {
+    background-color: #1b2939;
+}
+
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.w-full {
+  width: 100%;
+} {% endcomment %}
 
 </style>
 
