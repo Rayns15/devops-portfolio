@@ -884,7 +884,15 @@ select {
   margin-bottom: 10rem;
 }
 
+.mb-39 {
+  margin-bottom: 9.5rem;
+}
+
 .mb-38 {
+  margin-bottom: 9rem;
+}
+
+.mb-37 {
   margin-bottom: 8.5rem;
 }
 
@@ -1143,11 +1151,6 @@ select {
 
 /* Signup Page */
 
-.signupbc {
-  background-color: #121e2a;
-  color: #fff;
-}
-
 .container {
 	max-width: 960px;
 	margin: auto;
@@ -1182,6 +1185,36 @@ select {
 .login-form label[for]:after {
   content: " *";
   color: red;
+}
+
+.login-form h1 {
+  text-align: center;
+}
+
+.login-form input {
+  padding: .5rem 1rem;
+  background-color: #121e2a;
+  border: solid #203145;
+  color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  outline: none;
+}
+
+.login-form input:focus {
+  border: solid #3760d4;
+}
+
+.login-form a {
+  color: #3760d4;
+}
+
+.login-form a:hover {
+  color: rgb(55, 96, 212, 0.9);
+}
+
+.login-form div {
+  margin: 1rem 0;
 }
 
 .signup-form h1 {
@@ -1244,6 +1277,10 @@ select {
 
 .rounded-\[8px\] {
   border-radius: 8px;
+}
+
+.rounded-\[10px\] {
+  border-radius: 10px;
 }
 
 .rounded-\[6px\] {
