@@ -23,4 +23,5 @@ urlpatterns = [
     path('categories/', views.categories, name='categories'),
     path('search/', views.search, name='search'),
     path('thanks', views.thanks, name='thanks'),
+    path('ai_portfolio', views.ai_cv_nav, name='ai_portfolio'),
 ]

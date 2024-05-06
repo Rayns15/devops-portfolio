@@ -116,6 +116,9 @@ def index (request):
 def about (request):
     return render(request, 'about.html')
 
+def ai_cv_nav (request):
+    return render(request, 'ai_portfolio.html')
+
 def thanks(request):
     return render(request, 'thanks.html')
 
