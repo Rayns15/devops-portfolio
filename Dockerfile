@@ -11,6 +11,7 @@ RUN pip install -r requirements.txt
 
 
 RUN pip install django-tailwind
+RUN pip install django-bootstrap-v5
 #RUN python manage.py tailwind init
 
 RUN python manage.py migrate
