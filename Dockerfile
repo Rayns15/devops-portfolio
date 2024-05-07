@@ -1,4 +1,8 @@
 FROM python:3
+
+source devportfolio_venv/bin/activate
+WORKDIR /devportfolio_venv/devops-portfolio
+
 RUN apt-get update && apt-get install -y libpq-dev
 RUN pip install -r requirements.txt
 #RUN pip install django==5.0.5
