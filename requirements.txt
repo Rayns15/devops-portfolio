@@ -23,7 +23,6 @@ MarkupSafe==2.1.5
 mdurl==0.1.2
 packaging==24.0
 pillow==10.3.0
-libpq-dev==9.4.3 psycopg2
 psycopg2==2.9.9
 Pygments==2.17.2
 python-dateutil==2.9.0.post0
