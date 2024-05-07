@@ -1,5 +1,7 @@
-FROM ubuntu:latest
+FROM python:3
+RUN pip install django==5.0.5
+COPY . .
 
-COPY build /usr/share/nginx/html
+RUN python manage.py migrate
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD [ "python","manage.py","runserver","0.0.0.0:8001" ]
