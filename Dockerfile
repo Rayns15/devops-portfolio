@@ -1,4 +1,5 @@
 FROM python:3
+RUN sudo apt-get -y install libpq-dev
 RUN pip install -r requirements.txt
 #RUN pip install django==5.0.5
 COPY . .
