@@ -125,7 +125,7 @@ def index(request):
 
     # ... (rest of your view code)
 
-    context = {'random_blogs': random_blogs, /*other data */}
+    context = {'random_blogs': random_blogs}
     return render(request, 'index.html', context)
 
 
