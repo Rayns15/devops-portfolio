@@ -117,18 +117,15 @@ def index(request):
     blogs = Blog.objects.all()  # Fetch all blogs
 
     # Check if there are enough blogs for a sample
-    if blogs.count() == 3:
+    if blogs.count() >= 3:
         random_blogs = random.sample(list(blogs), 3)
+        context = {'random_blogs': random_blogs}
+        return render(request, 'index.html', context)
     else:
         # Handle the case where there aren't enough blogs
         random_blogs = blogs.all()  # Return all available blogs
 
     # ... (rest of your view code)
-
-    context = {'random_blogs': random_blogs}
-    return render(request, 'index.html', context)
-
-
 
 def about (request):
     return render(request, 'about.html')
