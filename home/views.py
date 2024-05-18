@@ -107,11 +107,28 @@ def password_generator(request):
         return render(request, 'password-generator.html')
 
 # Create your views here.
-def index (request):
-    blogs = Blog.objects.all()
-    random_blogs = random.sample(list(blogs), 3)
-    context = {'random_blogs': random_blogs}
+# def index (request):
+#     blogs = Blog.objects.all()
+#     random_blogs = random.sample(list(blogs), 3)
+#     context = {'random_blogs': random_blogs}
+#     return render(request, 'index.html', context)
+
+def index(request):
+    blogs = Blog.objects.all()  # Fetch all blogs
+
+    # Check if there are enough blogs for a sample
+    if blogs.count() >= 3:
+        random_blogs = random.sample(list(blogs), 3)
+    else:
+        # Handle the case where there aren't enough blogs
+        random_blogs = blogs.all()  # Return all available blogs
+
+    # ... (rest of your view code)
+
+    context = {'random_blogs': random_blogs, /*other data */}
     return render(request, 'index.html', context)
+
+
 
 def about (request):
     return render(request, 'about.html')
