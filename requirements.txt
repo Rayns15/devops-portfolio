@@ -42,3 +42,4 @@ pytube===15.0.0
 qrcode===7.4.2
 jsbeautifier===1.15.1
 speedtest===0.0.1
+psycopg2-binary===2.9.9
