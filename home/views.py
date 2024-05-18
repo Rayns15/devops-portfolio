@@ -117,7 +117,7 @@ def index(request):
     blogs = Blog.objects.all()  # Fetch all blogs
 
     # Check if there are enough blogs for a sample
-    if blogs.count() >= 3:
+    if blogs.count() == 3:
         random_blogs = random.sample(list(blogs), 3)
     else:
         # Handle the case where there aren't enough blogs
