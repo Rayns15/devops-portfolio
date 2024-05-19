@@ -15,11 +15,11 @@ RUN pip install django-bootstrap-v5
 #RUN python manage.py tailwind init
 
 # Set environment variables for superuser creation
-ENV DJANGO_SUPERUSER_USERNAME=rayns
-ENV DJANGO_SUPERUSER_EMAIL=panaitemanuel@gmail.com
-ENV DJANGO_SUPERUSER_PASSWORD=.Installuser01
+# ENV DJANGO_SUPERUSER_USERNAME=rayns
+# ENV DJANGO_SUPERUSER_EMAIL=panaitemanuel@gmail.com
+# ENV DJANGO_SUPERUSER_PASSWORD=.Installuser01
 
 RUN python manage.py migrate
-RUN python manage.py createsuperuser --noinput
+#RUN python manage.py createsuperuser --noinput
 
 CMD [ "python3","manage.py","runserver","0.0.0.0:8001" ]

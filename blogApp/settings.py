@@ -112,6 +112,9 @@ DATABASES = {
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
+TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js'
+TINYMCE_COMPRESSOR = False
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
