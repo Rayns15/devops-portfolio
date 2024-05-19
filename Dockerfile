@@ -14,7 +14,6 @@ RUN pip install django-tailwind
 RUN pip install django-bootstrap-v5
 #RUN python manage.py tailwind init
 
-RUN python manage.py loaddata data.json
 RUN python manage.py migrate
 
 CMD [ "python3","manage.py","runserver","0.0.0.0:8001" ]
