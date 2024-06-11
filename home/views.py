@@ -173,6 +173,41 @@ def contact (request):
 def projects (request):
     return render(request, 'projects.html')
 
+def password_generator(request):
+    if request.method == 'POST':
+        length = int(request.POST.get('length'))
+        uppercase = request.POST.get('uppercase') == 'on'
+        lowercase = request.POST.get('lowercase') == 'on'
+        numbers = request.POST.get('numbers') == 'on'
+        symbols = request.POST.get('symbols') == 'on'
+
+        characters = ''
+        if uppercase:
+            characters += string.ascii_uppercase
+        if lowercase:
+            characters += string.ascii_lowercase
+        if numbers:
+            characters += string.digits
+        if symbols:
+            characters += string.punctuation
+
+        if characters:
+            password = ''.join(random.choice(characters) for i in range(length))
+        else:
+            password = ''
+
+        context = {
+            'password': password,
+            'length': length,
+            'uppercase': uppercase,
+            'lowercase': lowercase,
+            'numbers': numbers,
+            'symbols': symbols,
+        }
+        return render(request, 'password-generator.html', context)
+    else:
+        return render(request, 'password-generator.html')
+
 def blog(request):
     blogs = Blog.objects.all().order_by('-time')
     paginator = Paginator(blogs, 3)

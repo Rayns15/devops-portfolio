@@ -9,21 +9,12 @@ mobMenuBtn.addEventListener("click", function mobMenubtoggle() {
 
 // Tools Dropdown Menu
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.addEventListener("click", (event) => {
-      const target = event.target;
-      const dropdownMenu = document.querySelector('.tools-dropdown-menu');
-      
-      if (target.id === 'tool-btn' || target.closest('#tool-btn')) { 
-          event.preventDefault(); // Prevent default link behavior
-          dropdownMenu.classList.toggle('show'); 
-      } else {
-          if (dropdownMenu && dropdownMenu.classList.contains('show')) {
-              dropdownMenu.classList.remove('show');
-          }
-      }
-  });
-});
+const toolMenu = document.querySelector(".tools-dropdown-menu");
+const toolMenuBtn = document.getElementById("tool-btn");
+
+toolMenuBtn.addEventListener("click", function toolsMenubtoggle() {
+  toolMenu.classList.toggle("show")
+})
 
 // Contact Form Validation
 
@@ -142,65 +133,65 @@ if (contactform) {
 
 // Signup Form Validation
 
-// const signupform = document.querySelector('.signup-form');
+const signupform = document.querySelector('.signup-form');
 
-// if (signupform) {
-//   const signupnameInput = signupform.querySelector('#name');
-//   const signupemailInput = signupform.querySelector('#email');
-//   const usernameInput = signupform.querySelector('#username');
-//   const passwordInput = signupform.querySelector('#password');
-//   const passwordInstructions = signupform.querySelector('.password-instructions');
-//   const NameerrorDiv = document.querySelector('.nameerror-message');
-//   const EmailerrorDiv = document.querySelector('.emailerror-message');
-//   const UsernameerrorDiv = document.querySelector('.usernameerror-message');
-//   const PassworderrorDiv = document.querySelector('.passworderror-message');
+if (signupform) {
+  const signupnameInput = signupform.querySelector('#name');
+  const signupemailInput = signupform.querySelector('#email');
+  const usernameInput = signupform.querySelector('#username');
+  const passwordInput = signupform.querySelector('#password');
+  const passwordInstructions = signupform.querySelector('.password-instructions');
+  const NameerrorDiv = document.querySelector('.nameerror-message');
+  const EmailerrorDiv = document.querySelector('.emailerror-message');
+  const UsernameerrorDiv = document.querySelector('.usernameerror-message');
+  const PassworderrorDiv = document.querySelector('.passworderror-message');
 
-//   signupform.addEventListener('submit', (event) => {
-//     event.preventDefault();
+  signupform.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-//     // Validate name
-//     if (signupnameInput.value === '') {
-//       NameerrorDiv.innerHTML = 'Please enter your name.';
-//       signupnameInput.focus();
-//       // displayError('Please enter your name.');
-//       return;
-//     } else {
-//       NameerrorDiv.innerHTML = '';
-//     }
+    // Validate name
+    if (signupnameInput.value === '') {
+      NameerrorDiv.innerHTML = 'Please enter your name.';
+      signupnameInput.focus();
+      // displayError('Please enter your name.');
+      return;
+    } else {
+      NameerrorDiv.innerHTML = '';
+    }
 
-//     // Validate email
-//     const emailRegex = /\S+@\S+\.\S+/;
-//     if (!emailRegex.test(signupemailInput.value)) {
-//       EmailerrorDiv.innerHTML = 'Please enter a valid email address.';
-//       signupemailInput.focus();
-//       return;
-//     } else {
-//       EmailerrorDiv.innerHTML = '';
-//     }
+    // Validate email
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(signupemailInput.value)) {
+      EmailerrorDiv.innerHTML = 'Please enter a valid email address.';
+      signupemailInput.focus();
+      return;
+    } else {
+      EmailerrorDiv.innerHTML = '';
+    }
 
-//     // Validate username
-//     if (usernameInput.value === '') {
-//       UsernameerrorDiv.innerHTML = 'Please enter a username.';
-//       usernameInput.focus();
-//       return;
-//     } else {
-//       UsernameerrorDiv.innerHTML = '';
-//     }
+    // Validate username
+    if (usernameInput.value === '') {
+      UsernameerrorDiv.innerHTML = 'Please enter a username.';
+      usernameInput.focus();
+      return;
+    } else {
+      UsernameerrorDiv.innerHTML = '';
+    }
 
-//     // Validate password
-//     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
-//     if (!passwordRegex.test(passwordInput.value)) {
-//       PassworderrorDiv.innerHTML = 'Please enter a password that meets the following criteria mentioned below.';
-//       passwordInput.focus();
-//       return;
-//     } else {
-//       PassworderrorDiv.innerHTML = '';
-//     }
+    // Validate password
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+    if (!passwordRegex.test(passwordInput.value)) {
+      PassworderrorDiv.innerHTML = 'Please enter a password that meets the following criteria mentioned below.';
+      passwordInput.focus();
+      return;
+    } else {
+      PassworderrorDiv.innerHTML = '';
+    }
 
-//     // Submit the form
-//     signupform.submit();
-//   });
-// }
+    // Submit the form
+    signupform.submit();
+  });
+}
 
 // Login Form Validation
 

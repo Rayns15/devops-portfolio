@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* YouTube Video Downloader */
+.yt-video-downloader-form {
+  background-color: #1b2939;
+  border-radius: 10px;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+
+.yt-video-downloader-form h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 30px;
+}
+
+.yt-video-downloader-form input{
+  padding: .5rem 1rem;
+  background-color: #121e2a;
+  border-radius: 10px;
+  width: 100%;
+  outline: none;
+  border: 2px solid #203145;
+  color: #fff;
+}
+
+.yt-video-downloader-form input:focus {
+  border: 3px solid #3760d4;
+}
+
+/* Password Generator */
+
+.password-gen-form {
+  background-color: #1b2939;
+  border: 2px solid #1b2939;
+  border-radius: 10px;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+
+.password-gen-form h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 30px;
+}
+
+.password-gen-form textarea {
+  background-color: #121e2a;
+  border: 2px solid #203145;
+  color: #fff;
+}
+
+.form-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Tools button */
+
+.tools-dropdown-menu {
+  display: none;
+  position: relative
+}
+
+.tools-dropdown-menu.show {
+  display: block;
+}
+
+.dropdown:hover .tools-dropdown-menu { 
+  display: block; /* Show the menu on hover */
+}
+
+.tools-dropdown {
+  position: absolute;
+  background-color: #1b2939;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  width: 40rem;
+  top: 100%;
+  right: 0;
+  margin-top: .5rem;
+  border: 2px solid #203145;
+  display: grid;
+  opacity: 0;
+  transform: translateY(-10px);
+  grid-template-columns: repeat(2, 1fr);
+  box-shadow:0 5px 30px 0 rgba(0,0,0,.05);
+  animation: toolsMenuMenuReveal .3s normal forwards;
+}
+
+.tool-menu {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  column-gap: 1rem;
+  /* grid-template-columns: repeat(2, 1fr); */
+  margin: 1rem .5rem;
+}
+
+.tool-menu:hover {
+  background-color: #253850;
+  border-radius: 10px;
+}
+
+.tool {
+  text-align: center;
+  background-color: #3760d4;
+  color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 4rem;
+}
+
+.tool:hover {
+  background-color: rgb(55, 96, 212, 0.9);
+}
+
+@keyframes toolsMenuMenuReveal {
+  0%   {  
+      opacity: 0; 
+      transform: translateY(-10px);
+  }
+  100% {  
+      opacity: 1; 
+      transform: translateY(0px);
+  }
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
+
+.mobmenuBtn {
+  background-color: #1b2939;
+}
+
+.menuBtn {
+  display: none;
+}
+
+.btn {
+  background-color: #3760d4;
+  border-radius: 50px;
+  padding: .5rem 1rem;
+  width: 100px;
+  color: var(--other-color);
+  text-align: center;
+}
+
+#mobmenuBtn {
+  display: none;
+  padding: .3rem .5rem;
+  border-radius: 50px;
+}
+
+#mobmenuBtn:active {
+  background-color: #1b2939;
+}
