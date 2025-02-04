@@ -98,8 +98,6 @@ python manage.py runserver
 - `Custom 404 Pages`: Custom error pages that display when a user navigates to a non-existent page or encounters an error.
 
 ## Website Screenshots
-![127 0 0 1_8000_about](https://user-images.githubusercontent.com/106135144/218676693-b433a723-0569-4a5a-91e2-d2330659233d.png)
-
 ![127 0 0 1_8000_contact](https://user-images.githubusercontent.com/106135144/218676709-3924f790-32db-46f3-a1b5-bf1907506751.png)
 
 ![127 0 0 1_8000_blog](https://user-images.githubusercontent.com/106135144/218676733-bc2313e9-9721-4f4b-9fd8-ab7cfa939221.png)
