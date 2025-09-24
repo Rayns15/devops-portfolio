@@ -28,7 +28,7 @@
 ## Installation
 1. Clone the repository:
 ```
-git clone https://github.com/ashish-makes/django-tailwind-blog.git
+git clone https://github.com/Rayns15/devops-portfolio.git
 ```
 2. Navigate to the project directory:
 ```
