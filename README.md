@@ -97,15 +97,6 @@ python manage.py runserver
 - `Categories`: A page that displays a list of blog post categories, with links to filtered lists of posts for each category.
 - `Custom 404 Pages`: Custom error pages that display when a user navigates to a non-existent page or encounters an error.
 
-## Website Screenshots
-![127 0 0 1_8000_contact](https://user-images.githubusercontent.com/106135144/218676709-3924f790-32db-46f3-a1b5-bf1907506751.png)
-
-![127 0 0 1_8000_blog](https://user-images.githubusercontent.com/106135144/218676733-bc2313e9-9721-4f4b-9fd8-ab7cfa939221.png)
-
-![127 0 0 1_8000_projects](https://user-images.githubusercontent.com/106135144/218676756-3770e70e-149b-48ae-af50-44d1ee43aed6.png)
-
-![127 0 0 1_8000_projectsk](https://user-images.githubusercontent.com/106135144/218676780-62e72dd7-d2e4-4ef9-9b2b-aea25abf625d.png)
-
 ## Admin Screenshots
 ![127 0 0 1_8000_admin_](https://user-images.githubusercontent.com/106135144/218730427-1aad64b4-65ff-44e4-babf-840d200919fa.png)
 
